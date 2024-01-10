@@ -36,7 +36,7 @@ export class LoginService {
   login(username: string, password: string) {
 
     const headers = { 'Content-Type': 'application/json' };
-    this.http.post<{message: string}>("http://localhost:8080/api/auth/signin",
+    this.http.post<{message: string}>("http://157.245.66.82:8080/api/auth/signin",
       {
         "username": username,
         "password": password
@@ -54,7 +54,7 @@ export class LoginService {
 
   auth(){
     const headers = { 'Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    let url =  "http://localhost:8080/api/test/user"
+    let url =  "http://157.245.66.82:8080/api/test/user"
     // @ts-ignore
     this.http.get<string>(url, {headers, responseType: 'text'}).subscribe((response) =>{
       if(String(response) == "User Content."){
@@ -71,7 +71,7 @@ export class LoginService {
 
   adminAuth(){
     const headers = { 'Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    let url = "http://localhost:8080/api/test/admin"
+    let url = "http://157.245.66.82:8080/api/test/admin"
     // @ts-ignore
     this.http.get<string>(url, {headers, responseType: 'text'}).subscribe((response) =>{
       if(String(response) == "Admin Board."){

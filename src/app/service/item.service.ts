@@ -19,7 +19,7 @@ export class ItemService{
 
   addItem(item: Item){
     const headers = { 'Content-Type': 'application/json','Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    this.http.post<Item>("http://localhost:8080/api/minicon/mini", item, {headers}).subscribe(responseData =>{
+    this.http.post<Item>("http://157.245.66.82:8080/api/minicon/mini", item, {headers}).subscribe(responseData =>{
       console.log(responseData);
 
     })
@@ -28,7 +28,7 @@ export class ItemService{
 
   updateItem(newItem: Item, index: number){
     const headers = { 'Content-Type': 'application/json','Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    const route = "http://localhost:8080/api/minicon/minis/"+index.toString()
+    const route = "http://157.245.66.82:8080/api/minicon/minis/"+index.toString()
     this.http.put<Item>(route, newItem, {headers}).subscribe(responseData =>{
       console.log(responseData);
 
@@ -38,7 +38,7 @@ export class ItemService{
   }
 
   getItems(){
-    this.http.get<Item[]>("http://localhost:8080/api/minicon/minis").subscribe(
+    this.http.get<Item[]>("http://157.245.66.82:8080/api/minicon/minis").subscribe(
       (items: Item[]) => {
         this.items = items;
       },
@@ -59,7 +59,7 @@ export class ItemService{
 
   deleteItem(deleteItem: Item) {
     const headers = { 'Content-Type': 'application/json','Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    const route = "http://localhost:8080/api/minicon/minis/"+deleteItem.id.toString()
+    const route = "http://157.245.66.82:8080/api/minicon/minis/"+deleteItem.id.toString()
     this.http.delete(route,{headers}).subscribe(responseData =>{
       console.log(responseData);
 

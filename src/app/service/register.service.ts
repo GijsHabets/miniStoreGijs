@@ -22,7 +22,7 @@ export class RegisterService{
     var role = this.selectRole;
 
     const headers = { 'Content-Type': 'application/json' };
-    let url =  "http://localhost:8080/api/auth/signup"
+    let url =  "http://157.245.66.82:8080/api/auth/signup"
     this.http.post<{message: string}>(url,
       {
         "username": username,

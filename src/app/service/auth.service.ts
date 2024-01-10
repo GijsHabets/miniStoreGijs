@@ -12,7 +12,7 @@ export class AuthService{
   auth(){
     const headers = { 'Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
 
-    const url = "http://localhost:8080/api/test/user"
+    const url = "http://157.245.66.82:8080/api/test/user"
     // @ts-ignore
     this.http.get<string>(url, {headers, responseType: 'text'}).subscribe((response) =>{
       if(String(response) == "User Content."){
@@ -44,7 +44,7 @@ export class AuthService{
   }
   adminAuth(){
     const headers = { 'Authorization': 'Bearer '+sessionStorage.getItem('JWT') };
-    const url = "http://localhost:8080/api/test/admin"
+    const url = "http://157.245.66.82:8080/api/test/admin"
     // @ts-ignore
     this.http.get<string>(url, {headers, responseType: 'text'}).subscribe((response) =>{
       if(String(response) == "Admin Board."){
